@@ -1,0 +1,44 @@
+.me-2 {
+    width: 100%;
+    background-color: black;
+}
+h1{
+    color: slategray;
+}
+.container {
+    background: rgb(4,10,88);
+    background: linear-gradient(167deg, rgba(4,10,88,1) 0%, rgba(126,8,118,1) 68%);
+    height: 100vh;
+}
+.rounded {
+
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+.grup {
+    color: rgb(134, 129, 129);
+    font-size: 20px;
+    background-color: rgb(19, 9, 9);
+    padding: 10px;
+}
+.batn {
+    background-color: rgb(104, 1, 81);
+    color: white;
+  
+}
+.batn:hover{
+    color:rgb(104, 1, 81);
+    background-color: white;
+}
+.grup:hover {
+    background-color: rgb(90, 85, 85);
+    color: white;
+}
+.battn:hover {
+background-color: white;
+color: rgb(90, 85, 85);
+}
