@@ -1,17 +1,22 @@
 import React from 'react'
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Input } from 'reactstrap';
+import { Button, Input, ListGroup } from 'reactstrap';
 import "./Todo.css"
 import { useSelector, useDispatch } from 'react-redux'
-import { setValue, addTask, allDelete } from '../redux/actions';
-import ListGroup from './ListGroup';
+
+import { setValue, addTask, allDelete } from '../../redux/actions';
+import ListGroupItem from '../ListGroupItem';
+
+
+
 
 const Todo = () => {
+    const value = useSelector(state => state.value);
     const data = useSelector(state => state.tasks);
-    const value = useSelector(state => state.value)
-    const dispatch = useDispatch();
 
+    const dispatch = useDispatch();
+    const add = () => (value != "") && addTask(dispatch, value);
 
 
     return (
@@ -21,19 +26,19 @@ const Todo = () => {
                 <div className="d-flex justify-content-between align-items-center">
                     <Input onChange={(e) => setValue(dispatch, e.target.value)}
                         value={value} placeholder="new task" className="me-2 bg-white" />
-                    <Button onClick={() => addTask(dispatch, value)} color="primary" >
+                    <Button onClick={(add)} color="primary" >
                         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                     </Button>
-                    <Button className="battn" onClick={() => allDelete(value)}>
+                    <Button className="battn" onClick={() => allDelete(dispatch, value)}>
                         Delete
                     </Button>
                 </div>
             </div>
-            <ListGroup className="">
-                {data.map((value, index) => <ListGroup
-                    value={value} key={index} index={index} />
-                )}
+            <ListGroup>
+                {data ?.map((item, index) =>
+                    <ListGroupItem key={index} index={index} item={item} />)}
             </ListGroup>
+
 
         </div>
     )
