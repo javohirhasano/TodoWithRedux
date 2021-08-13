@@ -39,7 +39,7 @@ const ListGroup = ({ index, item }) => {
                     </Button>
                 </ButtonGroup>
                 : <UncontrolledDropdown>
-                    <DropdownToggle caret>
+                    <DropdownToggle caret className="bars">
                         <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
                     </DropdownToggle>
                     <DropdownMenu>

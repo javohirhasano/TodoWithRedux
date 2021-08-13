@@ -1,13 +1,20 @@
 .me-2 {
     width: 100%;
     background-color: black;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    border-color: rgb(110, 96, 96);
 }
 h1{
     color: slategray;
 }
+.man {
+border-radius: 20px;
+}
 .container {
     background: rgb(4,10,88);
-    background: linear-gradient(167deg, rgba(4,10,88,1) 0%, rgba(126,8,118,1) 68%);
+    background: linear-gradient(167deg, rgb(7, 11, 66) 0%, rgba(126,8,118,1) 68%);
     height: 100vh;
 }
 .rounded {
@@ -18,6 +25,7 @@ h1{
 .dark {
     background-color: black;
     color: white;
+    border-radius: 20px;
 }
 .grup {
     color: rgb(134, 129, 129);
@@ -25,9 +33,16 @@ h1{
     background-color: rgb(19, 9, 9);
     padding: 10px;
 }
-.batn {
-    color: rgb(204, 12, 12);
-  
+.batnn {
+    color: black;
+    border-radius: 50%;
+    background-color: slategrey;
+  border-color: rgb(102, 96, 96);
+}
+.batnn:hover{
+    background-color: black;
+    color: slategrey;
+    border-color: rgb(100, 91, 91);
 }
 .batn:hover{
     color:rgb(104, 1, 81);

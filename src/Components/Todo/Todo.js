@@ -23,15 +23,13 @@ const Todo = () => {
         <div className="container  p-3 mb-2">
             <h1>Todo App</h1>
             <div className=" rounded dark shadow" >
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex man justify-content-between align-items-center">
                     <Input onChange={(e) => setValue(dispatch, e.target.value)}
                         value={value} placeholder="new task" className="me-2 bg-white" />
-                    <Button onClick={(add)} color="primary" >
+                    <Button onClick={(add)} color="primary" className="batnn" >
                         <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                     </Button>
-                    <Button className="battn" onClick={() => allDelete(dispatch, value)}>
-                        Delete
-                    </Button>
+
                 </div>
             </div>
             <ListGroup>
