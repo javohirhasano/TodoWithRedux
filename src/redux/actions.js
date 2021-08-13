@@ -1,5 +1,5 @@
 
-import { SET_VALUE, GET_PLUS, GET_DELETE, DELETE_ALL, EDIT_TASK, TASK_UP, TASK_DAWN } from "./typies";
+import { SET_VALUE, GET_PLUS, GET_DELETE, DELETE_ALL, EDIT_TASK, TASK_UP, Toggle_TASK, TASK_DAWN } from "./typies";
 
 export const setValue = (dispatch, value) => {
     const action = { type: SET_VALUE, payload: value }
@@ -27,5 +27,9 @@ export const taskUp = (dispatch, index) => {
 }
 export const taskDawn = (dispatch, index) => {
     const action = { type: TASK_DAWN, payload: { index } };
+    dispatch(action);
+}
+export const toggleTask = (dispatch, index) => {
+    const action = { type: Toggle_TASK, payload: { index } };
     dispatch(action);
 }

@@ -1,6 +1,6 @@
 
 import initialState from "./initialState";
-import { SET_VALUE, GET_PLUS, GET_DELETE, EDIT_TASK, TASK_UP, TASK_DAWN } from "./typies";
+import { SET_VALUE, GET_PLUS, GET_DELETE, EDIT_TASK, TASK_UP, Toggle_TASK, TASK_DAWN } from "./typies";
 
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case SET_VALUE:
             return {
                 ...state,
-                value: action.payload
+                value: [action.payload]
             };
 
         case GET_PLUS:
@@ -36,7 +36,8 @@ const reducer = (state = initialState, action) => {
             tasks = [...state.tasks];
             i = action.payload;
             if (i < tasks.length - 1)
-                [tasks[i - 1], tasks[i]] = [tasks[i], tasks[i - 1]]
+                [tasks[i - 1], tasks[i]] = [tasks[i], tasks[i - 1]];
+            else tasks = [...tasks.slice(i), tasks[i]]
             return { ...state.tasks }
 
         case TASK_DAWN:
@@ -44,8 +45,14 @@ const reducer = (state = initialState, action) => {
             i = action.payload;
             if (i < tasks.length - 1)
                 [tasks[i + 1], tasks[i]] = [tasks[i], tasks[i + 1]]
+            else tasks = [tasks[i], ...tasks.slice(0, i)]
             return { ...state.tasks }
 
+        case Toggle_TASK:
+            tasks = [...state.tasks];
+            i = action.payload
+            tasks[i].title = i;
+            return { ...state.tasks }
         default: return state;
     }
 }

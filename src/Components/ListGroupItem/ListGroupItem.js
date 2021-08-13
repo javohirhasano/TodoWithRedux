@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faBars, faEdit, faArrowUp, faArrowDown, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import ListGroupItemWrapper from "./ListGroupItemWrapper";
 import { useDispatch } from "react-redux";
-import { deleted, Edit, taskUp, taskDawn } from "../../redux/actions";
+import { deleted, Edit, taskUp, taskDawn, toggleTask } from "../../redux/actions";
 import { ButtonGroup } from 'reactstrap';
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -25,12 +25,12 @@ const ListGroup = ({ index, item }) => {
     }
     return (
 
-        <ListGroupItemWrapper tag="a" href="#" action
+        <ListGroupItemWrapper tag="a" href="#" action onDoubleClick={() => toggleTask(dispatch, index)}
             className="d-flex align-items-center justify-content-between">
             {isEdit ? <Input value={value} onChange={(e) => setValue(e.target.value)}></Input> :
-                < h4 > {index + 1}. {item.title}</h4>}
+                < h4 style={{ textDecoration: item.complated ? "Liner-through" : "none" }} > {index + 1}. {item.title}</h4>}
             {isEdit ?
-                <ButtonGroup className="d-flex">
+                <ButtonGroup className="d-flex" >
                     <Button color="success" onClick={save} >
                         <FontAwesomeIcon icon={faSave} className="me-2"></FontAwesomeIcon>
                     </Button>
